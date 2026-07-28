@@ -1,0 +1,14 @@
+{
+    "VsCodeTaskButtons.showCounter": false,
+    "VsCodeTaskButtons.tasks": [
+      {
+        "label": "$(rocket) Build & Upload",
+        "task": "🚀 Build & Upload",
+        "tooltip": "Compile and upload current .c file"
+      },
+    ],
+    "code-runner.executorMap": {
+      "python": "/opt/homebrew/bin/python3 -u"
+    },
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
+  }

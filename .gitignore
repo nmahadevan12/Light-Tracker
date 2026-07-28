@@ -1,0 +1,50 @@
+# ==========================================
+# Build Artifacts & Compiled Binaries
+# ==========================================
+*.o
+*.obj
+*.elf
+*.hex
+*.eep
+*.lst
+*.map
+*.s
+*.a
+*.lib
+
+# Common build output directories
+build/
+bin/
+out/
+Debug/
+Release/
+
+# ==========================================
+# VS Code Settings
+# ==========================================
+# Ignore user-specific settings, state, and caches
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/c_cpp_properties.json
+*.code-workspace
+
+# ==========================================
+# Operating System / System Files
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# Temporary & Log Files
+# ==========================================
+*.log
+*.tmp
+*.bak
