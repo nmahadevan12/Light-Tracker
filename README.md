@@ -1,4 +1,4 @@
-# Dual-Axis Solar Tracker & Motor Control System
+# 2-Axis Light Tracker
 
 An embedded AVR C application for automated solar tracking using LDR sensor data, Kalman filtering, and Hall-effect safety limits, paired with IoT telemetry logging and custom PCB hardware designs.
 
