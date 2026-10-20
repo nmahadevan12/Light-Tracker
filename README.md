@@ -1,39 +1,32 @@
 # 2-Axis Light Tracker
 
-An embedded AVR C application for automated solar tracking using LDR sensor data, Kalman filtering, and Hall-effect safety limits, paired with IoT telemetry logging and custom PCB hardware designs.
+Solo **ELEE 4230** project: a battery-powered dual-axis light tracker on an **ATmega328P**. Bare-metal C drives **DC motors** (not servos) through MOSFET H-bridges, with LDR sensing, fixed-point Kalman filtering, Hall-effect tilt limits, and UART telemetry to a Python logger.
 
-## 📹 Video Demo
+## Demo
 
-Watch the project in action on YouTube:
+[YouTube short](https://www.youtube.com/shorts/PQEl34fqnAk)
 
-[![Project Demo](https://img.youtube.com/vi/PQEl34fqnAk/0.jpg)](https://www.youtube.com/shorts/PQEl34fqnAk)
+## Features
 
-*(Click the image above or [click here](https://www.youtube.com/shorts/PQEl34fqnAk) to watch the video)*
+- **Kalman on ADC:** smooths LDR, potentiometer, and battery channels (peak noise cut from ~3 LSBs to under 1 LSB on the portfolio write-up measurements).
+- **Closed-loop DC motor control:** base and panel axes via H-bridge direction outputs from thresholded LDR differentials.
+- **Auto-calibration:** startup sweep into Hall-effect limits to learn pot min/max.
+- **Hardware limit protection:** Hall sensors + latched software states stop over-rotation.
+- **UART telemetry:** register-level UART (9.216 MHz crystal) streaming status to Python logging scripts — local serial logging, not a cloud “IoT” stack.
 
----
-
-## 📌 Features
-
-* **Real-time Kalman Filtering:** Smooths noise on raw ADC readings from dual LDRs, potentiometers, and battery monitoring.
-* **Closed-loop Motor Control:** Drives base and panel DC motors via directional output signals based on thresholded LDR differentials.
-* **Auto-Calibration Routine:** Performs startup sweep using Hall-effect limit switches to establish min/max potentiometer ADC limits.
-* **Hardware Limit Protection:** Uses Hall-effect sensors and latched software states to prevent motor over-rotation.
-* **IoT Telemetry:** UART serial communication interface for real-time status updates, logged via Python scripts.
-
----
-
-## 📁 Repository Structure
+## Repo layout
 
 ```text
 .
-├── .vscode/                     # VS Code workspace tasks and setup
-├── ATmega328P Datasheet/        # Hardware datasheet reference files
-├── Images/                      # Project photos and KiCad screenshots
-├── Kicad Files/                 # KiCad schematics and PCB layout designs
-├── src/                         # Application source code
-│   ├── IoT Logging/             # Python scripts for UART data logging
-│   │   └── main.py
-│   └── Source Code/             # AVR C firmware
-│       └── main.c
-├── .gitignore                   # Files excluded from Git tracking
-└── README.md                    # Project documentation
+├── ATmega328P Datasheet/
+├── Images/
+├── Kicad Files/          # Schematics + PCB
+├── src/
+│   ├── IoT Logging/      # Python UART logger (folder name is historical)
+│   └── Source Code/      # AVR C firmware
+└── README.md
+```
+
+## More detail
+
+Design notes, gallery, and interactive PCB: [nmahadevan12.github.io/projects/light-tracker/](https://nmahadevan12.github.io/projects/light-tracker/)
