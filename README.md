@@ -8,11 +8,10 @@ Solo **ELEE 4230** project: a battery-powered dual-axis light tracker on an **AT
 
 ## Features
 
-- **Kalman on ADC:** smooths LDR, potentiometer, and battery channels (peak noise cut from ~3 LSBs to under 1 LSB on the portfolio write-up measurements).
-- **Closed-loop DC motor control:** base and panel axes via H-bridge direction outputs from thresholded LDR differentials.
-- **Auto-calibration:** startup sweep into Hall-effect limits to learn pot min/max.
-- **Hardware limit protection:** Hall sensors + latched software states stop over-rotation.
-- **UART telemetry:** register-level UART (9.216 MHz crystal) streaming status to Python logging scripts — local serial logging, not a cloud “IoT” stack.
+- **Bare-metal dual-axis drive:** ATmega328P C firmware driving motors with MOSFET H-bridges.
+- **Tilt safety:** LDR array with Hall-effect and potentiometer feedback to keep tilt within safe limits.
+- **Fixed-point Kalman + UART:** cuts ADC noise from 3 LSBs to < 1 LSB without an FPU; streams results over a register-level 115.2 kbps UART driver.
+- **4-layer KiCad PCB:** separate power, ground, and signal layers; widened power traces to reduce voltage drop.
 
 ## Repo layout
 
