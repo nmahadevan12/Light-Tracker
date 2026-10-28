@@ -1,6 +1,6 @@
 # 2-Axis Light Tracker
 
-Solo **ELEE 4230** project: a battery-powered dual-axis light tracker on an **ATmega328P**. Bare-metal C drives **DC motors** (not servos) through MOSFET H-bridges, with LDR sensing, fixed-point Kalman filtering, Hall-effect tilt limits, and UART telemetry to a Python logger.
+A battery-powered dual-axis light tracker on an ATmega328P. Bare-metal C drives DC motors through MOSFET H-bridges, with LDR sensing, fixed-point Kalman filtering, Hall-effect tilt limits, and UART telemetry to a Python logger.
 
 ## Demo
 
